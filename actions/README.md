@@ -96,9 +96,9 @@ All actions accept auth inputs directly or read from `SFCC_*` environment variab
 | `password` | `SFCC_PASSWORD` | WebDAV operations |
 | `short-code` | `SFCC_SHORTCODE` | SCAPI operations |
 | `tenant-id` | `SFCC_TENANT_ID` | SCAPI operations |
-| `mrt-api-key` | `SFCC_MRT_API_KEY` | MRT operations |
-| `mrt-project` | `SFCC_MRT_PROJECT` | MRT operations |
-| `mrt-environment` | `SFCC_MRT_ENVIRONMENT` | MRT operations |
+| `mrt-api-key` | `MRT_API_KEY` | MRT operations |
+| `mrt-project` | `MRT_PROJECT` | MRT operations |
+| `mrt-environment` | `MRT_ENVIRONMENT` | MRT operations |
 | `account-manager-host` | `SFCC_ACCOUNT_MANAGER_HOST` | Account Manager |
 
 ## Plugins

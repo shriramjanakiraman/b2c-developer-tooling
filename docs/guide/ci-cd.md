@@ -29,15 +29,15 @@ Store credentials as GitHub [repository secrets](https://docs.github.com/en/acti
 | `SFCC_CLIENT_SECRET` | OAuth Client Secret |
 | `SFCC_USERNAME` | WebDAV username |
 | `SFCC_PASSWORD` | WebDAV password/access key |
-| `SFCC_MRT_API_KEY` | MRT API key |
+| `MRT_API_KEY` | MRT API key |
 
 **Recommended variables:**
 
 | Variable | Description |
 |----------|-------------|
 | `SFCC_SERVER` | B2C instance hostname |
-| `SFCC_MRT_PROJECT` | MRT project slug |
-| `SFCC_MRT_ENVIRONMENT` | MRT environment |
+| `MRT_PROJECT` | MRT project slug |
+| `MRT_ENVIRONMENT` | MRT environment |
 
 Credentials can be passed per-action or set once with the **setup** action so they're available to all subsequent steps.
 
@@ -213,9 +213,9 @@ Push and deploy an MRT bundle.
 ```yaml
 - uses: SalesforceCommerceCloud/b2c-developer-tooling/actions/mrt-deploy@v1
   with:
-    mrt-api-key: ${{ secrets.SFCC_MRT_API_KEY }}
-    project: ${{ vars.SFCC_MRT_PROJECT }}
-    environment: ${{ vars.SFCC_MRT_ENVIRONMENT }}
+    mrt-api-key: ${{ secrets.MRT_API_KEY }}
+    project: ${{ vars.MRT_PROJECT }}
+    environment: ${{ vars.MRT_ENVIRONMENT }}
     build-directory: build
     message: 'Deploy from CI'
 ```
@@ -330,9 +330,9 @@ jobs:
 
       - uses: SalesforceCommerceCloud/b2c-developer-tooling/actions/mrt-deploy@v1
         with:
-          mrt-api-key: ${{ secrets.SFCC_MRT_API_KEY }}
-          project: ${{ vars.SFCC_MRT_PROJECT }}
-          environment: ${{ vars.SFCC_MRT_ENVIRONMENT }}
+          mrt-api-key: ${{ secrets.MRT_API_KEY }}
+          project: ${{ vars.MRT_PROJECT }}
+          environment: ${{ vars.MRT_ENVIRONMENT }}
           build-directory: build
           message: 'Release ${{ github.event.release.tag_name }}'
 ```
