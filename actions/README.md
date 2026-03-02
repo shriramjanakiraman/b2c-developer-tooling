@@ -156,3 +156,5 @@ When `json: true` (default), the `result` output contains the parsed JSON from t
   with:
     version: '0.4.1'  # Pin CLI version
 ```
+
+> **Note:** High-level actions (`code-deploy`, `data-import`, `job-run`, `mrt-deploy`, `webdav-upload`) and the root action internally reference `actions/setup@v1` and `actions/run@v1`. This means even if you pin the outer action to a specific SHA or tag, the setup and run steps resolve to the latest `v1` release. For full SHA-level reproducibility, use `actions/setup` + `actions/run` directly — each can be pinned independently to an exact SHA. For most users, `@v1` on the high-level actions is the recommended approach.
