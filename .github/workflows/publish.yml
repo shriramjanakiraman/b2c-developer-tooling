@@ -434,10 +434,10 @@ jobs:
               --notes "$(cat <<'NOTES'
           ## B2C DX VS Code Extension v${{ steps.packages.outputs.version_vsx }}
 
-          Download the \`.vsix\` file below and install via:
-          \`\`\`
+          Download the `.vsix` file below and install via:
+          ```
           code --install-extension b2c-vs-extension-${{ steps.packages.outputs.version_vsx }}.vsix
-          \`\`\`
+          ```
 
           Or in VS Code: Extensions → ⋯ → Install from VSIX...
           NOTES
