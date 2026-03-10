@@ -419,7 +419,6 @@ jobs:
         if: >-
           steps.release-type.outputs.type == 'stable'
           && steps.packages.outputs.publish_vsx == 'true'
-          && (steps.packages.outputs.publish_cli == 'true' || steps.packages.outputs.publish_sdk == 'true' || steps.packages.outputs.publish_mcp == 'true')
         run: |
           VSX_TAG="b2c-vs-extension@${{ steps.packages.outputs.version_vsx }}"
 
