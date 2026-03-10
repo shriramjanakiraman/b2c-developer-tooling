@@ -80,6 +80,14 @@ jobs:
               break
             fi
           done
+          # Also check VS extension tag
+          if [ "$HAS_CHANGES" = "false" ]; then
+            VSX_VERSION=$(node -p "require('./packages/b2c-vs-extension/package.json').version")
+            LAST_VSX_TAG=$(git tag -l "b2c-vs-extension@*" --sort=-v:refname | grep -v '@latest$' | head -1 | sed 's/b2c-vs-extension@//')
+            if [ "$VSX_VERSION" != "$LAST_VSX_TAG" ]; then
+              HAS_CHANGES=true
+            fi
+          fi
           # Also check docs tag
           if [ "$HAS_CHANGES" = "false" ]; then
             DOCS_VERSION=$(node -p "require('./docs/package.json').version")
@@ -155,7 +163,7 @@ jobs:
 
           # VS Code extension — compare against git tags (not npm)
           LOCAL_VSX_VERSION=$(node -p "require('./packages/b2c-vs-extension/package.json').version")
-          LAST_VSX_TAG=$(git tag -l "b2c-vs-extension@*" --sort=-v:refname | head -1 | sed 's/b2c-vs-extension@//')
+          LAST_VSX_TAG=$(git tag -l "b2c-vs-extension@*" --sort=-v:refname | grep -v '@latest$' | head -1 | sed 's/b2c-vs-extension@//')
           echo "b2c-vs-extension: local=${LOCAL_VSX_VERSION} tag=${LAST_VSX_TAG:-none}"
           if [ "$LOCAL_VSX_VERSION" != "$LAST_VSX_TAG" ]; then
             echo "publish_vsx=true" >> $GITHUB_OUTPUT
@@ -258,6 +266,13 @@ jobs:
           else
             echo "No tags to create"
           fi
+
+      - name: Update b2c-vs-extension@latest tag
+        if: steps.release-type.outputs.type == 'stable' && steps.packages.outputs.publish_vsx == 'true'
+        run: |
+          git tag -f b2c-vs-extension@latest
+          git push origin b2c-vs-extension@latest --force
+          echo "Updated b2c-vs-extension@latest tag to $(git rev-parse HEAD)"
 
       - name: Update v1 Actions tag
         if: steps.release-type.outputs.type == 'stable' && steps.changesets.outputs.skip != 'true' && steps.quick-check.outputs.skip != 'true'
