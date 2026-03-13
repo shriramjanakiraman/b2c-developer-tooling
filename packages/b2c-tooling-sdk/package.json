@@ -338,7 +338,9 @@
     "test:watch": "mocha --watch \"test/**/*.test.ts\"",
     "coverage": "c8 report",
     "posttest": "pnpm run lint",
-    "generate:docs-index": "tsx scripts/generate-docs-index.ts"
+    "generate:docs-index": "tsx scripts/generate-docs-index.ts",
+    "prepack": "node scripts/strip-dev-exports.cjs",
+    "postpack": "git checkout package.json"
   },
   "devDependencies": {
     "@eslint/compat": "catalog:",
