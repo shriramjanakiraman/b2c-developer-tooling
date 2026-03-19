@@ -164,13 +164,11 @@ Without `--json`, the command writes schema XML directly to stdout. With `--path
 
 ### Validating XML with xmllint
 
-Use the `--path` flag to pass schema paths directly to `xmllint` for XML validation:
+Use the `--path` flag to pass schema paths directly to `xmllint` for XML validation (requires installation of `xmllint`):
 
 ```bash
 xmllint --schema "$(b2c docs schema catalog --path)" catalog.xml --noout
 ```
-
-This works because `--path` returns the real filesystem path, allowing `xmllint` to resolve relative schema imports (like `xml.xsd`) automatically.
 
 ---
 
