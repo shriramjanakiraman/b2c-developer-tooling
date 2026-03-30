@@ -1,9 +1,9 @@
 name: Renovate
 
 on:
-  # Run daily at 5am UTC (matches renovate.json Monday schedule window)
+  # Run hourly to process dashboard actions (PR schedule controlled by renovate.json)
   schedule:
-    - cron: '0 5 * * *'
+    - cron: '0 * * * *'
   # Allow manual trigger
   workflow_dispatch:
     inputs:
