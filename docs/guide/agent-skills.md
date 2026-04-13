@@ -1,5 +1,5 @@
 ---
-description: AI agent skills and plugins for Claude Code, Cursor, and GitHub Copilot that enhance B2C Commerce development.
+description: AI agent skills and plugins for Agentforce Vibes, Claude Code, Codex, Cursor, GitHub Copilot that enhance B2C Commerce development.
 ---
 
 # Agent Skills & Plugins
