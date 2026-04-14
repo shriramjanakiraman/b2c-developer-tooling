@@ -1,6 +1,6 @@
 ---
 name: b2c-cip
-description: Run Commerce Intelligence Platform (CIP/CCAC) analytics reports, metadata discovery, and SQL queries with the b2c cli. Always reference when using the CLI to run analytics reports, query Commerce Intelligence data, discover CIP tables, or export KPI metrics. Also use when users ask about sales, search, or payment analytics.
+description: Run analytics reports and SQL queries against B2C Commerce Intelligence data using the b2c CLI. Use this skill whenever the user needs sales analytics, search query performance metrics, payment data, or KPI exports. Also use when they need to discover available data tables, run custom SQL, or pull aggregate reports — even if they just say "show me sales data" or "what are our top search terms".
 ---
 
 # B2C CIP Skill

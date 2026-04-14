@@ -1,6 +1,6 @@
 ---
 name: b2c-ecdn
-description: Manage B2C Commerce eCDN (embedded Content Delivery Network / edge CDN, powered by Cloudflare) settings with the b2c CLI. Use for CDN zone management, cache purging, SSL certificate provisioning, WAF rules, firewall rules, rate limiting, logpush, Page Shield, MRT routing, mTLS, cipher suites, origin headers, and speed optimization.
+description: Manage eCDN zones, security settings, and edge configuration for B2C Commerce storefronts. Use this skill whenever the user needs to purge CDN cache, provision SSL certificates, configure WAF or firewall rules, set up rate limiting, enable logpush or Page Shield, manage MRT routing, configure mTLS or cipher suites, or optimize edge performance. Also use when troubleshooting CDN-layer issues or managing zone settings -- even if they just say 'clear the cache' or 'block bot traffic on our storefront'.
 ---
 
 # B2C eCDN Skill
