@@ -148,11 +148,37 @@ b2c job export --global-data meta_data --timeout 600
 
 For full control over the export configuration (including `catalog_static_resources`, `library_static_resources`, and `customer_lists`), use `--data-units` with a JSON string matching the `ExportDataUnitsConfiguration` shape.
 
+### View Job Logs
+
+```bash
+# get the log from the most recent execution of a job
+b2c job log my-custom-job
+
+# get the log from the most recent failed execution
+b2c job log my-custom-job --failed
+
+# get the log from a specific execution
+b2c job log my-custom-job abc123-def456
+```
+
 ### Search Job Executions
 
 ```bash
-# search for job executions
+# search for recent job executions
 b2c job search
+
+# filter by job ID
+b2c job search --job-id my-custom-job
+
+# filter by status
+b2c job search --status ERROR
+b2c job search --status RUNNING,PENDING
+
+# control result count and pagination
+b2c job search --count 50 --start 0
+
+# sort results
+b2c job search --sort-by start_time --sort-order desc
 
 # search with JSON output
 b2c job search --json
@@ -163,11 +189,13 @@ b2c job search --json
 ```bash
 # wait for a specific job execution to complete (requires both job ID and execution ID)
 b2c job wait <job-id> <execution-id>
+
+# wait with a timeout
+b2c job wait <job-id> <execution-id> --timeout 600
+
+# wait with a custom polling interval
+b2c job wait <job-id> <execution-id> --poll-interval 5
 ```
-
-### More Commands
-
-See `b2c job --help` for a full list of available commands and options in the `job` topic.
 
 ## Related Skills
 

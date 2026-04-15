@@ -48,7 +48,7 @@ b2c am clients list --json
 b2c am clients get <api-client-id>
 
 # with expanded organizations and roles
-b2c am clients get <api-client-id> --expand organizations --expand roles
+b2c am clients get <api-client-id> --expand organizations,roles
 ```
 
 ### Create Client

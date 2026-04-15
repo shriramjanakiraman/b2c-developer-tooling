@@ -31,7 +31,7 @@ b2c ecdn zones list --tenant-id zzxy_prd --json
 
 ```bash
 # create a new storefront zone
-b2c ecdn zones create --tenant-id zzxy_prd --storefront-hostname www.example.com --origin-hostname origin.example.com
+b2c ecdn zones create --tenant-id zzxy_prd --domain-name example.com
 ```
 
 ### Purge Cache
@@ -42,9 +42,6 @@ b2c ecdn cache purge --tenant-id zzxy_prd --zone my-zone --path /products --path
 
 # purge by cache tags
 b2c ecdn cache purge --tenant-id zzxy_prd --zone my-zone --tag product-123 --tag category-456
-
-# purge everything
-b2c ecdn cache purge --tenant-id zzxy_prd --zone my-zone --purge-everything
 ```
 
 ### Manage Certificates
@@ -55,9 +52,6 @@ b2c ecdn certificates list --tenant-id zzxy_prd --zone my-zone
 
 # add a new certificate
 b2c ecdn certificates add --tenant-id zzxy_prd --zone my-zone --hostname www.example.com --certificate-file ./cert.pem --private-key-file ./key.pem
-
-# get certificate details
-b2c ecdn certificates get --tenant-id zzxy_prd --zone my-zone --certificate-id abc123
 
 # validate a custom hostname
 b2c ecdn certificates validate --tenant-id zzxy_prd --zone my-zone --certificate-id abc123
